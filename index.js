@@ -1,3 +1,4 @@
+// const object = require('object');
 // 1. Creating objects using the constructor method
 
 function instagramPost(authorsHandle, content, number_of_views, number_of_likes){
@@ -51,19 +52,52 @@ console.log(person1);
 
 // 3. Different ways to clone an object
 // a. Objects can be cloned using the object.assign method. Example
-const myMotorBike = {
+let myMotorBike = {
     model : "Suzuki",
     year : 2002,
     color : "black",
     power : "275 horse power"
 };
-console.log(myMotorBike)
+
+let myBike = object.assign({}, myMotorBike);
+myBike.model = "Yamaha";
+console.log(myMotorBike);
+console.log(myBike);
 
 
-const myBike = object.assign({}, myMotorBike);
-console.log(myBike)
+
+// b. objects can be cloned using Spread Operator
+
+const myKekeMaruwa = {
+    model : "Bajag",
+    year : 2008,
+    color : "Yellow and Black",
+    power : "185 horse power"
+};
+
+const myMaruwa = {
+    ...myKekeMaruwa
+};
+
+myMaruwa.color = "Blue and White";
+
+console.log(myKekeMaruwa);
+console.log(myMaruwa);
 
 
+
+// c. objects can be cloned using JSON.parse('JSON.stringify')
+
+const originalBiscuit = {
+    biscuitName : "Digestive",
+    originates : "England",
+    year : 1976,
+};
+const otherKinds = JSON.parse(JSON.stringify(originalBiscuit));
+otherKinds.biscuitName = "Short Bread";
+
+console.log(originalBiscuit);
+console.log(otherKinds);
 
 
 
@@ -80,6 +114,7 @@ const presidentialCandidate = {
 
 let myCandidate = "";
 for(const [key, value] of Object.entries(presidentialCandidate)) {
-    myCandidate += `${key} is the Presidential candidate for ${value}\n`
+    myCandidate += `${key} is the Presidential candidate for ${value}`
 }
-console.log(myCandidate)
+console.log(myCandidate);
+
